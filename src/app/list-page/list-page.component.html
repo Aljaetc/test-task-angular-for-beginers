@@ -1,0 +1,13 @@
+<div class="row justify-content-center mt-5">
+  <ul class="nav nav-tabs col-xl-10">
+    <li class="nav-item" *ngFor="let transactionType of this.getAllTypeTransactions()">
+      <a class="nav-link" [routerLink]="['/list-page']" [queryParams]="{tab: transactionType}" [class.active]="this.tab == transactionType">{{transactionType}}</a>
+    </li>
+  </ul>
+</div>
+<div class="row justify-content-center">
+  <ul class="list-group list-group-flush col-xl-10">
+    <li class="list-group-item fw-bold fw-bold">Name<span>Amount</span></li>
+    <li class="list-group-item list-group-item-action" *ngFor="let transaction of getOneTypeTransactions(this.tab)">{{transaction.name.first + " " + transaction.name.last}}<span>{{transaction.amount}}</span></li>
+  </ul>
+</div>
